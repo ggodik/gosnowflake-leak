@@ -50,6 +50,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	var rows int64 = 0
 	for _, b := range batches {
 		recs, err := b.Fetch(ctx)
 		if err != nil {
@@ -57,6 +58,11 @@ func main() {
 		}
 
 		for _, rec := range *recs {
+			rows += rec.NumRows()
+			if rows > int64(*rowsCount/10) {
+				rows = 0
+				log.Print(".")
+			}
 			rec.Release()
 		}
 	}
