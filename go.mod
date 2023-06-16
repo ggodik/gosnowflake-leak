@@ -1,8 +1,8 @@
 module github.com/ggodik/gosnowflake-leak
 
-go 1.18
+go 1.20
 
-require github.com/snowflakedb/gosnowflake v1.6.19-0.20230228202026-7c7d86c6b3d0
+require github.com/snowflakedb/gosnowflake v1.6.22
 
 require (
 	github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4 // indirect
